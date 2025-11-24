@@ -1,7 +1,7 @@
 public class Pointer {
-    private final double x;
-    private final double y;
-    public Pointer(double x, double y) {
+    private final int x;
+    private final int y;
+    public Pointer(int x, int y) {
         this.x = x;
         this.y = y;
     }
