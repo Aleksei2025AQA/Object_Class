@@ -1,22 +1,45 @@
+import java.util.Objects;
+
 public class Pointer {
-    private final int x;
-    private final int y;
+    private int x;
+    private int y;
+
     public Pointer(int x, int y) {
         this.x = x;
         this.y = y;
     }
-    public String toString() {
-        return "{" + x + ";" + y + "}";
+
+    public int getX() {
+        return x;
     }
-    public static void main(String[] args) {
-        Pointer point1 = new Pointer(1, 3);
-        Pointer point2 = new Pointer(1, 3);
-        Pointer point3 = new Pointer(5, 8);
-        System.out.println("Точка 1: " + point1);
-        System.out.println("Точка 2: " + point2);
-        System.out.println("Точка 3: " + point3);
-        System.out.println("Сравнение point1 и point2: " + (point1 == point2));
-        System.out.println("Сравнение point1 и point3: " + (point1 == point3));
+
+    public int getY() {
+        return y;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Pointer pointer = (Pointer) o;
+        return x == pointer.x && y == pointer.y;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(x, y);
+    }
+
+    @Override
+    public String toString() {
+        return String.format("{%d;%d}", x, y);
     }
 }
-
